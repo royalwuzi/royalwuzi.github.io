@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  
+  <title>test - 一个CTF小小萌新的blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+    <body>
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/MrWillCom" target="_blank">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-codepen nav-item-icon" href="https://codepen.io/mrwillcom" target="_blank">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-patreon nav-item-icon" href="https://www.patreon.com/MrWillCom" target="_blank">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        <article class="post">
+    <div class="meta">
+        
+        <div class="date" id="date">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <span>October</span>
+            
+            
+            
+            <span>25,</span>
+            <span>2020</span>
+        </div>
+        
+
+        <h2 class="title">test</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="MIAO大师傅的套娃misc"><a href="#MIAO大师傅的套娃misc" class="headerlink" title="MIAO大师傅的套娃misc"></a>MIAO大师傅的套娃misc</h1><p>最近，<del>作为一个pwn手的我</del>作为一个萌新的我正式接触了misc，正好喵师傅发了一个红包闯关题，于是菜鸡我就花了一天多解决了这个套娃。<del>人都傻了，一度抓狂。</del>今天写下来我的wp，太难了。</p>
+<h2 id="Step-0000-0000"><a href="#Step-0000-0000" class="headerlink" title="Step 0000 0000"></a>Step 0000 0000</h2><p><a target="_blank" rel="noopener" href="https://miaotony.xyz/2020/01/25/CTF_2020HappyChineseNewYear/">题目链接</a></p>
+<h2 id="Step-0000-0001"><a href="#Step-0000-0001" class="headerlink" title="Step 0000 0001"></a>Step 0000 0001</h2><p>首先打开链接看到了第一层。</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024123245795.png" alt="image-20201024123245795"></p>
+<p>社会主义核心价值观，很明显，直接百度找一个在线工具解码。</p>
+<p>得到了一串字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NB2HI4DTHIXS63LJMFXXI33OPEXHQ6L2F5JTGQ3SIV2DKL3EONTGQ4LMMV3WWYLMNJWGWZTENZXXGL3TMZVGI2LPGJYTG4TLNRTGC3TGMRWDW23KMZWGWZLKMZWDWZ3GGMXUCMLTGBDDI23FGIZTGMZTF5GWSYLPFZUHI3LM</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>hint里提示是base解码，尝试base32解码后得到一个url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;miaotony.xyz&#x2F;S3CrEt5&#x2F;dsfhqlewkaljlkfdnos&#x2F;sfjdio2q3rklfanfdl;kjflkejfl;gf3&#x2F;A1s0F4ke23333&#x2F;Miao.html</span><br></pre></td></tr></table></figure>
+
+<p>[]: <a target="_blank" rel="noopener" href="https://miaotony.xyz/S3CrEt5/dsfhqlewkaljlkfdnos/sfjdio2q3rklfanfdl;kjflkejfl;gf3/A1s0F4ke23333/Miao.html">https://miaotony.xyz/S3CrEt5/dsfhqlewkaljlkfdnos/sfjdio2q3rklfanfdl;kjflkejfl;gf3/A1s0F4ke23333/Miao.html</a></p>
+<h2 id="Step-0000-0010"><a href="#Step-0000-0010" class="headerlink" title="Step 0000 0010"></a>Step 0000 0010</h2><p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024124139395.png" alt="image-20201024124139395"></p>
+<p>直接给了一个超级长的字符串，先保存到本地。看前面可以发现这是一个邮件的源文件，所以我就直接转为eml文件，直接发给自己提取了附件flag.docx。。<del>（我想了好久。。。）</del>（直接提取似乎也可以？）</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024130534165.png" alt="image-20201024130534165"></p>
+<p>所以 第一个flag来啦</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MIAO&#123;12787966&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-0000-0011"><a href="#Step-0000-0011" class="headerlink" title="Step 0000 0011"></a>Step 0000 0011</h2><p>继续打开下一个url</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024130649935.png" alt="image-20201024130649935"></p>
+<p>把这个图片保存到本地先，直接拖到010editor里面看看。发现了这是个zip压缩包。直接binwalk发现，foremost提取出来即可。</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024131331295.png" alt="image-20201024131331295"></p>
+<h2 id="Step-0000-0020"><a href="#Step-0000-0020" class="headerlink" title="Step 0000 0020"></a>Step 0000 0020</h2><p>提取出来是一个需要密码的zip文件和一个txt文本，emm密码是上一个flag，我才发现这图片里是有flag的。miao师傅的hint里提示用ps，当然stegsolve也可以。</p>
+<p>![img](file:///C:\Users\86152\OneDrive\文档\Tencent Files\1240892140\Image\C2C\C]%HNYB<code>K0B&#123;&#123;&#123;X0QR7G1</code>P.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag2：MIAO&#123;恭囍鼠你快乐喵贺&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-0000-0021"><a href="#Step-0000-0021" class="headerlink" title="Step 0000 0021"></a>Step 0000 0021</h2><p>然后我们继续打开压缩包</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024220529557.png" alt="image-20201024220529557"></p>
+<p>一个hint.txt和png图片。</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024212343758.png" alt="image-20201024212343758"></p>
+<p><del>这个 提示等于没有</del></p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024220553312.png" alt="image-20201024220553312"></p>
+<p>然后那个图片是提示文件头损坏无法解压。那就直接拖到010editor里面把文件头改过来zip文件的文件头是50 4B 03 04，改过来以后解压就是一张图片。拖进010editor里看了看也啥也没看出来，就又放到stegsolve里看看。提示是二维码，感觉也得不到什么。感觉应该是LSB隐写，就在stegsolve试了n遍后终于发现了一个文件头，是bmp文件的文件头。</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024215312521.png" alt="image-20201024215312521"></p>
+<p>save下来，在editor里把前面的fffe去掉后改成bmp文件扩展名就打开了，确实是一个二维码。用手机扫一下就行了啊。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MIAO&#123;05739966&#125;; NEXT：</span><br><span class="line">base64,&#39;&#x3D;&#x3D;QAIIABGgwAIEABAAAAKMHAAAgC+UGb1R2btxDCaDAAAogcAAAAJIHAAAQCyBAAAkgc05WayBXBafWYsZ2XkVGdwlncj5WZOo1ZhxmZfhXZohgWAAAALIHAAAwAy91Xj9GZf91BabQK6MXZj5WZmBCepN1C6R2NjVzY1MWNjVzY1MWNjVzY1MWN1MDN2kzM2YTM2YjN2YDMzczMidjM2QzMyMDMzIzMyMTMzYzMzYjZ0UzMyMTOzMjN1YjNzczM2YDNzEDN1MjNzUzM1MDNzYzM3MDNzUzM5QTN3UzN1cTN3UzN1cTN3UzN1cDZ0gn2AAAALIXAKEgCBAAAAAgBzBAAA4gc0N3XvR3XyR3U4VGaNodew5ic0MTW3NjT5BHc0g0D6DAAAkgcAkqbpJ2XyR3cHoNbh1WajVGZhhXZotg2yR3cfhXZodg2DkSZk92YlRmBannZpxGelhmb1lg2pl2YzFmbpJGCaXGZvNmblZg2EkCOtYGd1VgeOJQKAMVAhGAZDAqA8JQfBEaA8JAoBQXA9FQoBQGAgCAfAAAAeMHAAAwQAAAADAAAAMAAAAAAAAAABMmTAAAAAkuCgQjMxADMyAjMgoTZtlGVApQeu9GVvFWaNBiOy9Ga0VXQApgC+JHNzkFI3NjTgkHcwRDSKESIh4WdmBSZ2FGagQ3c1pkCh42bvNHIHFETGBSZoRHI0V2ZgwGbpdHI19WWKImeHkCATJAZAEgADSQZGQWBlRgWBM4AlJQZDoVBkJgWAQIBkNAZBoVAsJAZBQGAaBAZAAAAuMHAAAAQAAAADAAAAAAAAAAAAAAAAMOAAIAMepy4BCAAAAgCN0gQ&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第三个flag了：MIAO&#123;05739966&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-0000-0030"><a href="#Step-0000-0030" class="headerlink" title="Step 0000 0030"></a>Step 0000 0030</h2>
+    </div>
+
+    <div class="about">
+        <h1>About this Post</h1>
+        <p>This post is written by John Doe, licensed under <a
+                target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+</article>
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h4 class="title">Blog</h4>
+                
+                <a href="/" class="item" target="_blank">Blog</a>
+                
+                <a href="/archives" class="item" target="_blank">Archives</a>
+                
+                <a href="/friends" class="item" target="_blank">Friends</a>
+                
+                <a href="/projects" class="item" target="_blank">Projects</a>
+                
+                <a href="/about" class="item" target="_blank">About</a>
+                
+                <a href="/atom.xml" class="item" target="_blank">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Projects</h4>
+                
+                <a href="https://github.com/transmister" class="item" target="_blank">Transmister</a>
+                
+                <a href="https://github.com/MrWillCom/css-and-js-windows-uwp-xaml-controls" class="item" target="_blank">CSS&amp;JS Windows UWP XAML Controls</a>
+                
+                <a href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item" target="_blank">Theme Cupertino</a>
+                
+                <a href="https://github.com/MrWillCom/github-dark-mode" class="item" target="_blank">GitHub Dark Mode</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Me</h4>
+                
+                <a href="https://github.com/MrWillCom" class="item" target="_blank">GitHub</a>
+                
+                <a href="https://codepen.io/mrwillcom" class="item" target="_blank">CodePen</a>
+                
+                <a href="https://www.patreon.com/MrWillCom" class="item" target="_blank">Patreon</a>
+                
+                <a href="mailto:mr.will.com@outlook.com" class="item" target="_blank">Email</a>
+                
+            </div>
+            
+        </div>
+        &copy; 2020 John Doe<br />
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+</footer>
+
+        
+<script src="/js/main.js"></script>
+
+    </body>
+</html>
