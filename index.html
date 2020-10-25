@@ -1,149 +1,402 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>一个CTF小小萌新的blog - 要做最优秀的</title><meta name="author" content="royalw"><meta name="copyright" content="royalw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="website">
 <meta property="og:title" content="一个CTF小小萌新的blog">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="一个CTF小小萌新的blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/null">
 <meta property="article:author" content="royalw">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  ClickShowText: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-};
 
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>一个CTF小小萌新的blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一个CTF小小萌新的blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">要做最优秀的</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/25/miao%E5%B8%88%E5%82%85%E7%9A%84%E5%A5%97%E5%A8%83%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="royalw">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个CTF小小萌新的blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/25/miao%E5%B8%88%E5%82%85%E7%9A%84%E5%A5%97%E5%A8%83%E9%A2%98/" class="post-title-link" itemprop="url">test</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-25 15:46:03 / 修改时间：18:57:18" itemprop="dateCreated datePublished" datetime="2020-10-25T15:46:03+08:00">2020-10-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MIAO大师傅的套娃misc"><a href="#MIAO大师傅的套娃misc" class="headerlink" title="MIAO大师傅的套娃misc"></a>MIAO大师傅的套娃misc</h1><p>最近，<del>作为一个pwn手的我</del>作为一个萌新的我正式接触了misc，正好喵师傅发了一个红包闯关题，于是菜鸡我就花了一天多解决了这个套娃。<del>人都傻了，一度抓狂。</del>今天写下来我的wp，太难了。</p>
+<h2 id="Step-0000-0000"><a href="#Step-0000-0000" class="headerlink" title="Step 0000 0000"></a>Step 0000 0000</h2><p><a target="_blank" rel="noopener" href="https://miaotony.xyz/2020/01/25/CTF_2020HappyChineseNewYear/">题目链接</a></p>
+<h2 id="Step-0000-0001"><a href="#Step-0000-0001" class="headerlink" title="Step 0000 0001"></a>Step 0000 0001</h2><p>首先打开链接看到了第一层。</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024123245795.png" alt="image-20201024123245795"></p>
+<p>社会主义核心价值观，很明显，直接百度找一个在线工具解码。</p>
+<p>得到了一串字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NB2HI4DTHIXS63LJMFXXI33OPEXHQ6L2F5JTGQ3SIV2DKL3EONTGQ4LMMV3WWYLMNJWGWZTENZXXGL3TMZVGI2LPGJYTG4TLNRTGC3TGMRWDW23KMZWGWZLKMZWDWZ3GGMXUCMLTGBDDI23FGIZTGMZTF5GWSYLPFZUHI3LM</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>hint里提示是base解码，尝试base32解码后得到一个url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;miaotony.xyz&#x2F;S3CrEt5&#x2F;dsfhqlewkaljlkfdnos&#x2F;sfjdio2q3rklfanfdl;kjflkejfl;gf3&#x2F;A1s0F4ke23333&#x2F;Miao.html</span><br></pre></td></tr></table></figure>
+
+<p>[]: <a target="_blank" rel="noopener" href="https://miaotony.xyz/S3CrEt5/dsfhqlewkaljlkfdnos/sfjdio2q3rklfanfdl;kjflkejfl;gf3/A1s0F4ke23333/Miao.html">https://miaotony.xyz/S3CrEt5/dsfhqlewkaljlkfdnos/sfjdio2q3rklfanfdl;kjflkejfl;gf3/A1s0F4ke23333/Miao.html</a></p>
+<h2 id="Step-0000-0010"><a href="#Step-0000-0010" class="headerlink" title="Step 0000 0010"></a>Step 0000 0010</h2><p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024124139395.png" alt="image-20201024124139395"></p>
+<p>直接给了一个超级长的字符串，先保存到本地。看前面可以发现这是一个邮件的源文件，所以我就直接转为eml文件，直接发给自己提取了附件flag.docx。。<del>（我想了好久。。。）</del>（直接提取似乎也可以？）</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024130534165.png" alt="image-20201024130534165"></p>
+<p>所以 第一个flag来啦</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MIAO&#123;12787966&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-0000-0011"><a href="#Step-0000-0011" class="headerlink" title="Step 0000 0011"></a>Step 0000 0011</h2><p>继续打开下一个url</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024130649935.png" alt="image-20201024130649935"></p>
+<p>把这个图片保存到本地先，直接拖到010editor里面看看。发现了这是个zip压缩包。直接binwalk发现，foremost提取出来即可。</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024131331295.png" alt="image-20201024131331295"></p>
+<h2 id="Step-0000-0020"><a href="#Step-0000-0020" class="headerlink" title="Step 0000 0020"></a>Step 0000 0020</h2><p>提取出来是一个需要密码的zip文件和一个txt文本，emm密码是上一个flag，我才发现这图片里是有flag的。miao师傅的hint里提示用ps，当然stegsolve也可以。</p>
+<p>![img](file:///C:\Users\86152\OneDrive\文档\Tencent Files\1240892140\Image\C2C\C]%HNYB<code>K0B&#123;&#123;&#123;X0QR7G1</code>P.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag2：MIAO&#123;恭囍鼠你快乐喵贺&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-0000-0021"><a href="#Step-0000-0021" class="headerlink" title="Step 0000 0021"></a>Step 0000 0021</h2><p>然后我们继续打开压缩包</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024220529557.png" alt="image-20201024220529557"></p>
+<p>一个hint.txt和png图片。</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024212343758.png" alt="image-20201024212343758"></p>
+<p><del>这个 提示等于没有</del></p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024220553312.png" alt="image-20201024220553312"></p>
+<p>然后那个图片是提示文件头损坏无法解压。那就直接拖到010editor里面把文件头改过来zip文件的文件头是50 4B 03 04，改过来以后解压就是一张图片。拖进010editor里看了看也啥也没看出来，就又放到stegsolve里看看。提示是二维码，感觉也得不到什么。感觉应该是LSB隐写，就在stegsolve试了n遍后终于发现了一个文件头，是bmp文件的文件头。</p>
+<p><img src="C:\Users\86152\AppData\Roaming\Typora\typora-user-images\image-20201024215312521.png" alt="image-20201024215312521"></p>
+<p>save下来，在editor里把前面的fffe去掉后改成bmp文件扩展名就打开了，确实是一个二维码。用手机扫一下就行了啊。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MIAO&#123;05739966&#125;; NEXT：</span><br><span class="line">base64,&#39;&#x3D;&#x3D;QAIIABGgwAIEABAAAAKMHAAAgC+UGb1R2btxDCaDAAAogcAAAAJIHAAAQCyBAAAkgc05WayBXBafWYsZ2XkVGdwlncj5WZOo1ZhxmZfhXZohgWAAAALIHAAAwAy91Xj9GZf91BabQK6MXZj5WZmBCepN1C6R2NjVzY1MWNjVzY1MWNjVzY1MWN1MDN2kzM2YTM2YjN2YDMzczMidjM2QzMyMDMzIzMyMTMzYzMzYjZ0UzMyMTOzMjN1YjNzczM2YDNzEDN1MjNzUzM1MDNzYzM3MDNzUzM5QTN3UzN1cTN3UzN1cTN3UzN1cDZ0gn2AAAALIXAKEgCBAAAAAgBzBAAA4gc0N3XvR3XyR3U4VGaNodew5ic0MTW3NjT5BHc0g0D6DAAAkgcAkqbpJ2XyR3cHoNbh1WajVGZhhXZotg2yR3cfhXZodg2DkSZk92YlRmBannZpxGelhmb1lg2pl2YzFmbpJGCaXGZvNmblZg2EkCOtYGd1VgeOJQKAMVAhGAZDAqA8JQfBEaA8JAoBQXA9FQoBQGAgCAfAAAAeMHAAAwQAAAADAAAAMAAAAAAAAAABMmTAAAAAkuCgQjMxADMyAjMgoTZtlGVApQeu9GVvFWaNBiOy9Ga0VXQApgC+JHNzkFI3NjTgkHcwRDSKESIh4WdmBSZ2FGagQ3c1pkCh42bvNHIHFETGBSZoRHI0V2ZgwGbpdHI19WWKImeHkCATJAZAEgADSQZGQWBlRgWBM4AlJQZDoVBkJgWAQIBkNAZBoVAsJAZBQGAaBAZAAAAuMHAAAAQAAAADAAAAAAAAAAAAAAAAMOAAIAMepy4BCAAAAgCN0gQ&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第三个flag了：MIAO&#123;05739966&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-0000-0030"><a href="#Step-0000-0030" class="headerlink" title="Step 0000 0030"></a>Step 0000 0030</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
-
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2020-10-25 20:02:25'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(function () {
-  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-
-  const autoChangeMode = 'false'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
-        const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
       }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
-        }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
-})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">一个CTF小小萌新的blog</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">一个CTF小小萌新的blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2020/10/25/miao%E5%B8%88%E5%82%85%E7%9A%84%E5%A5%97%E5%A8%83%E9%A2%98/" title="test">test</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-25T07:46:03.000Z" title="发表于 2020-10-25 15:46:03">2020-10-25</time></span></div><div class="content">MIAO大师傅的套娃misc最近，作为一个pwn手的我作为一个萌新的我正式接触了misc，正好喵师傅发了一个红包闯关题，于是菜鸡我就花了一天多解决了这个套娃。人都傻了，一度抓狂。今天写下来我的wp，太难了。
-Step 0000 0000题目链接
-Step 0000 0001首先打开链接看到了第一层。
+</script>
 
-社会主义核心价值观，很明显，直接百度找一个在线工具解码。
-得到了一串字符
-1NB2HI4DTHIXS63LJMFXXI33OPEXHQ6L2F5JTGQ3SIV2DKL3EONTGQ4LMMV3WWYLMNJWGWZTENZXXGL3TMZVGI2LPGJYTG4TLNRTGC3TGMRWDW23KMZWGWZLKMZWDWZ3GGMXUCMLTGBDDI23FGIZTGMZTF5GWSYLPFZUHI3LM
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">royalw</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
 
 
-hint里提示是base解码，尝试base32解码后得到一个url
-1https:&#x2F;&#x2F;miaotony.xyz&#x2F;S3CrEt5&#x2F;dsfhqlewkaljlkfdnos&#x2F;sfjdio2q3rklfanfdl;kjflkejfl;g ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">royalw</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2020/10/25/miao%E5%B8%88%E5%82%85%E7%9A%84%E5%A5%97%E5%A8%83%E9%A2%98/" title="test">test</a><time datetime="2020-10-25T07:46:03.000Z" title="发表于 2020-10-25 15:46:03">2020-10-25</time></div></div></div></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/misc/" style="font-size: 1.1em; color: #999">misc</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-10-25T12:02:25.275Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By royalw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">royalw</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
