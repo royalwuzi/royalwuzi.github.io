@@ -28,8 +28,8 @@
 <meta property="og:description" content="MIAO大师傅的套娃misc最近，作为一个pwn手的我作为一个萌新的我正式接触了misc，正好喵师傅发了一个红包闯关题，于是菜鸡我就花了一天多解决了这个套娃。人都傻了，一度抓狂。今天写下来我的wp，太难了。 Step 0000 0000题目链接 Step 0000 0001首先打开链接看到了第一层。  社会主义核心价值观，很明显，直接百度找一个在线工具解码。 得到了一串字符 1NB2HI4DTHI">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2020/10/25/miaomisc/image-20201024123245795.png">
-<meta property="og:image" content="http://example.com/2020/10/25/miaomisc/miaomisc%5Cimage-20201024124139395.png">
-<meta property="og:image" content="http://example.com/2020/10/25/miaomisc/miaomisc%5Cimage-20201024130534165.png">
+<meta property="og:image" content="http://example.com/2020/10/25/miaomisc/image-20201024124139395.png">
+<meta property="og:image" content="http://example.com/2020/10/25/miaomisc/image-20201024130534165.png">
 <meta property="og:image" content="http://example.com/2020/10/25/miaomisc/miaomisc%5Cimage-20201024130649935.png">
 <meta property="og:image" content="http://example.com/2020/10/25/miaomisc/miaomisc%5Cimage-20201024131331295.png">
 <meta property="og:image" content="http://example.com/2020/10/25/miaomisc/miaomisc%5Cimage-20201024220529557.png">
@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://example.com/2020/10/25/miaomisc/miaomisc%5Cimage-20201024220553312.png">
 <meta property="og:image" content="http://example.com/2020/10/25/miaomisc/miaomisc%5Cimage-20201024215312521.png">
 <meta property="article:published_time" content="2020-10-25T14:11:34.000Z">
-<meta property="article:modified_time" content="2020-10-26T05:14:32.663Z">
+<meta property="article:modified_time" content="2020-10-26T06:27:24.284Z">
 <meta property="article:author" content="royalw">
 <meta property="article:tag" content="ctf">
 <meta name="twitter:card" content="summary">
@@ -87,6 +87,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="一个CTF小小萌新的blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -202,7 +203,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-26 13:14:32" itemprop="dateModified" datetime="2020-10-26T13:14:32+08:00">2020-10-26</time>
+                <time title="修改时间：2020-10-26 14:27:24" itemprop="dateModified" datetime="2020-10-26T14:27:24+08:00">2020-10-26</time>
               </span>
 
           
@@ -229,27 +230,27 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;miaotony.xyz&#x2F;S3CrEt5&#x2F;dsfhqlewkaljlkfdnos&#x2F;sfjdio2q3rklfanfdl;kjflkejfl;gf3&#x2F;A1s0F4ke23333&#x2F;Miao.html</span><br></pre></td></tr></table></figure>
 
 <p>[]: <a target="_blank" rel="noopener" href="https://miaotony.xyz/S3CrEt5/dsfhqlewkaljlkfdnos/sfjdio2q3rklfanfdl;kjflkejfl;gf3/A1s0F4ke23333/Miao.html">https://miaotony.xyz/S3CrEt5/dsfhqlewkaljlkfdnos/sfjdio2q3rklfanfdl;kjflkejfl;gf3/A1s0F4ke23333/Miao.html</a></p>
-<h2 id="Step-0000-0010"><a href="#Step-0000-0010" class="headerlink" title="Step 0000 0010"></a>Step 0000 0010</h2><p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024124139395.png" alt="image-20201024124139395"></p>
+<h2 id="Step-0000-0010"><a href="#Step-0000-0010" class="headerlink" title="Step 0000 0010"></a>Step 0000 0010</h2><p><img src="/2020/10/25/miaomisc/image-20201024124139395.png"></p>
 <p>​        直接给了一个超级长的字符串，先保存到本地。看前面可以发现这是一个邮件的源文件，所以我就直接转为eml文件，直接发给自己提取了附件flag.docx。。<del>（我想了好久。。。）</del>（直接提取似乎也可以？）</p>
-<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024130534165.png" alt="image-20201024130534165"></p>
+<p><img src="/2020/10/25/miaomisc/image-20201024130534165.png"></p>
 <p>所以 第一个flag来啦</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MIAO&#123;12787966&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Step-0000-0011"><a href="#Step-0000-0011" class="headerlink" title="Step 0000 0011"></a>Step 0000 0011</h2><p>继续打开下一个url</p>
-<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024130649935.png" alt="image-20201024130649935"></p>
+<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024130649935.png"></p>
 <p>把这个图片保存到本地先，直接拖到010editor里面看看。发现了这是个zip压缩包。直接binwalk发现，foremost提取出来即可。</p>
-<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024131331295.png" alt="image-20201024131331295"></p>
+<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024131331295.png"></p>
 <h2 id="Step-0000-0100"><a href="#Step-0000-0100" class="headerlink" title="Step 0000 0100"></a>Step 0000 0100</h2><p>提取出来是一个需要密码的zip文件和一个txt文本，emm密码是上一个flag，我才发现这图片里是有flag的。miao师傅的hint里提示用ps，当然stegsolve也可以。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag2：MIAO&#123;恭囍鼠你快乐喵贺&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Step-0000-0101"><a href="#Step-0000-0101" class="headerlink" title="Step 0000 0101"></a>Step 0000 0101</h2><p>然后我们继续打开压缩包</p>
-<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024220529557.png" alt="image-20201024220529557"></p>
+<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024220529557.png"></p>
 <p>一个hint.txt和png图片。</p>
-<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024212343758.png" alt="image-20201024212343758"></p>
+<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024212343758.png"></p>
 <p><del>这个 提示等于没有</del></p>
-<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024220553312.png" alt="image-20201024220553312"></p>
+<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024220553312.png"></p>
 <p>然后那个图片是提示文件头损坏无法解压。那就直接拖到010editor里面把文件头改过来zip文件的文件头是50 4B 03 04，改过来以后解压就是一张图片。拖进010editor里看了看也啥也没看出来，就又放到stegsolve里看看。提示是二维码，感觉也得不到什么。感觉应该是LSB隐写，就在stegsolve试了n遍后终于发现了一个文件头，是bmp文件的文件头。</p>
-<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024215312521.png" alt="image-20201024215312521"></p>
+<p><img src="/2020/10/25/miaomisc/miaomisc%5Cimage-20201024215312521.png"></p>
 <p>save下来，在editor里把前面的fffe去掉后改成bmp文件扩展名就打开了，确实是一个二维码。用手机扫一下就行了啊。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MIAO&#123;05739966&#125;; NEXT：</span><br><span class="line">base64,&#39;&#x3D;&#x3D;QAIIABGgwAIEABAAAAKMHAAAgC+UGb1R2btxDCaDAAAogcAAAAJIHAAAQCyBAAAkgc05WayBXBafWYsZ2XkVGdwlncj5WZOo1ZhxmZfhXZohgWAAAALIHAAAwAy91Xj9GZf91BabQK6MXZj5WZmBCepN1C6R2NjVzY1MWNjVzY1MWNjVzY1MWN1MDN2kzM2YTM2YjN2YDMzczMidjM2QzMyMDMzIzMyMTMzYzMzYjZ0UzMyMTOzMjN1YjNzczM2YDNzEDN1MjNzUzM1MDNzYzM3MDNzUzM5QTN3UzN1cTN3UzN1cTN3UzN1cDZ0gn2AAAALIXAKEgCBAAAAAgBzBAAA4gc0N3XvR3XyR3U4VGaNodew5ic0MTW3NjT5BHc0g0D6DAAAkgcAkqbpJ2XyR3cHoNbh1WajVGZhhXZotg2yR3cfhXZodg2DkSZk92YlRmBannZpxGelhmb1lg2pl2YzFmbpJGCaXGZvNmblZg2EkCOtYGd1VgeOJQKAMVAhGAZDAqA8JQfBEaA8JAoBQXA9FQoBQGAgCAfAAAAeMHAAAwQAAAADAAAAMAAAAAAAAAABMmTAAAAAkuCgQjMxADMyAjMgoTZtlGVApQeu9GVvFWaNBiOy9Ga0VXQApgC+JHNzkFI3NjTgkHcwRDSKESIh4WdmBSZ2FGagQ3c1pkCh42bvNHIHFETGBSZoRHI0V2ZgwGbpdHI19WWKImeHkCATJAZAEgADSQZGQWBlRgWBM4AlJQZDoVBkJgWAQIBkNAZBoVAsJAZBQGAaBAZAAAAuMHAAAAQAAAADAAAAAAAAAAAAAAAAMOAAIAMepy4BCAAAAgCN0gQ&#39;</span><br></pre></td></tr></table></figure>
 
