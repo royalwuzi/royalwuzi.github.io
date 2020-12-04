@@ -46,7 +46,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2020-11-14</lastmod>
+    <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -54,21 +54,21 @@
   
   <url>
     <loc>http://example.com/tags/ctf/</loc>
-    <lastmod>2020-11-14</lastmod>
+    <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/misc/</loc>
-    <lastmod>2020-11-14</lastmod>
+    <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/pwn/</loc>
-    <lastmod>2020-11-14</lastmod>
+    <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -77,21 +77,21 @@
   
   <url>
     <loc>http://example.com/categories/misc/</loc>
-    <lastmod>2020-11-14</lastmod>
+    <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/pwn/</loc>
-    <lastmod>2020-11-14</lastmod>
+    <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/ctf/</loc>
-    <lastmod>2020-11-14</lastmod>
+    <lastmod>2020-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
